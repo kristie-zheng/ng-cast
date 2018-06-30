@@ -20,13 +20,13 @@ angular.module('video-player')
       thisApp.processResults = (data) => {
         thisApp.videos = data;
         thisApp.currentVideo = data[0];
-        console.log('data return from the call', data);
+        // console.log(searchString);
       };
 
-      thisApp.searchResults = (/*query*/) => {
-        //thisApp.ytsearch(query)
-        youTube.search(thisApp.processResults);
-        console.log(youTube.result);
+      thisApp.searchResults = (query) => {
+        // console.log('search box text', query)
+        youTube.search(query, thisApp.processResults);
+        // console.log(youTube.result);
       };
 
       

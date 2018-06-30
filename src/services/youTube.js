@@ -4,32 +4,28 @@ angular.module('video-player')
     scope.method = 'GET',
     scope.url = 'https://www.googleapis.com/youtube/v3/search',
     scope.params = {
-      key: window.YOUTUBE_API_KEY,
-      maxResults: 5,
-      q: 'cat',
-      part: 'snippet',
-      type: 'video',
-      videoEmbeddable: 'true'
+
     };
     scope.result = null,
-    scope.search = function (callback) {
+    scope.search = function (query, callback) {
       // TODO
-      
       $http({
         url: 'https://www.googleapis.com/youtube/v3/search',
         method: scope.method,
-        // data: {
-        //   q: 'cat'
-        // },
-        params: scope.params,
+        params: {
+          key: window.YOUTUBE_API_KEY,
+          maxResults: 5,
+          q: query,
+          part: 'snippet',
+          type: 'video',
+          videoEmbeddable: 'true'
+        },
       }).
         then(
           function (response) {
             var data = response.data.items;
-            console.log("Success: " + JSON.stringify(data));
+            // console.log("Success: " + JSON.stringify(data));
             callback(data);
-            // scope.result = data;
-            // console.log(scope.result);
           },
           function (response) {
             var data = response.data.items || "Request failed";
