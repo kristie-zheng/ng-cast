@@ -3,11 +3,14 @@ angular.module('video-player')
   .component('videoPlayer', {
     // TODO
     bindings: {
-      mainVideo: '<'
+      video: '<'
     },
     controller: function() {
       // this.main = this.videos[0];
-      console.log(this.mainVideo);
+      // this.show = () => {
+      //   this.video === undefined
+      // }
+      console.log('what vidplayer receiv', this.video);
     },
     templateUrl: 'src/templates/videoPlayer.html'
   });
