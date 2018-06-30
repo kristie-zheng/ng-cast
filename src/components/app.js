@@ -2,8 +2,9 @@ angular.module('video-player')
 
   .component('app', {
     // TODO
-    controller: function() {
+    controller: function(youTube) {
       var thisApp = this;
+      // thisApp.ytsearch = youTube.search;
       thisApp.videos = window.exampleVideoData;
       thisApp.currentVideo = window.exampleVideoData[0];
       thisApp.onClick = function (index) {
@@ -13,8 +14,11 @@ angular.module('video-player')
         // console.log(index, 'after the click event', appp.currentVideo)
       };
       thisApp.selectVideo = () => {
+        
       };
-      thisApp.searchResults = () => {
+      thisApp.searchResults = (query) => {
+        //thisApp.ytsearch(query)
+        youTube.search(query);
       };
     },
     templateUrl: 'src/templates/app.html'
