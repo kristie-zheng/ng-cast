@@ -3,14 +3,11 @@ angular.module('video-player')
     var scope = this;
     scope.method = 'GET',
     scope.url = 'https://www.googleapis.com/youtube/v3/search',
-    scope.params = {
-
-    };
     scope.result = null,
     scope.search = function (query, callback) {
       // TODO
       $http({
-        url: 'https://www.googleapis.com/youtube/v3/search',
+        url: scope.url,
         method: scope.method,
         params: {
           key: window.YOUTUBE_API_KEY,
